@@ -1,0 +1,163 @@
+/* Global Styles */
+:root {
+  --primary: #6200ea;
+  --secondary: #03dac6;
+  --background: #121212;
+  --surface: #1e1e1e;
+  --error: #cf6679;
+  --on-background: #ffffff;
+  --on-surface: #e0e0e0;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--background);
+  color: var(--on-background);
+}
+
+h1, h2, h3 {
+  margin: 0 0 1rem 0;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Header */
+header {
+  background-color: var(--surface);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-layout {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .main-layout {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .left-panel {
+    flex: 1;
+    min-width: 300px;
+    position: sticky;
+    top: 2rem;
+  }
+  
+  .right-panel {
+    flex: 2;
+  }
+}
+
+/* Form Styles */
+.form-container, .product-container {
+  background-color: var(--surface);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--secondary);
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #333;
+  border-radius: 4px;
+  background-color: #2c2c2c;
+  color: white;
+  box-sizing: border-box; /* Fix padding issue */
+}
+
+input:focus {
+  outline: 2px solid var(--primary);
+  border-color: transparent;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: var(--primary);
+  color: white;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.btn-submit:disabled {
+  background-color: #444;
+  cursor: not-allowed;
+}
+
+/* Product Card - Grid Layout in ProductList component */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background-color: #2c2c2c;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.price {
+  color: var(--secondary);
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.stock {
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+.btn-delete {
+  background-color: var(--error);
+  color: white;
+  width: 100%;
+  margin-top: 1rem;
+}

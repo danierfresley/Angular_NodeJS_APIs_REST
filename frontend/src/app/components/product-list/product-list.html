@@ -1,0 +1,27 @@
+<div class="product-container">
+  <h2>Lista de Productos</h2>
+
+  <div *ngIf="loading" class="loading">
+    <p>⏳ Cargando productos...</p>
+  </div>
+
+  <div *ngIf="errorMessage" class="error-msg">
+    <p>⚠️ {{ errorMessage }}</p>
+  </div>
+
+  <div class="grid" *ngIf="!loading && !errorMessage">
+    @for (product of products; track $index) {
+    <img [src]="product.imageUrl" alt="{{product.name}}" class="card-img">
+    <div class="card-body">
+      <h3>{{ product.name }}</h3>
+      <p class="price">\${{ product.price }}</p>
+      <p class="stock">Stock: {{ product.stock }}</p>
+      <div class="actions">
+        <button (click)="editProduct.emit(product)" class="btn-edit">Editar</button>
+        <button (click)="deleteProduct(product._id)" class="btn-delete">Eliminar</button>
+      </div>
+    </div>
+    }
+  </div>
+  <p *ngIf="!loading && !errorMessage && products.length === 0">No hay productos disponibles.</p>
+</div>

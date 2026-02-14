@@ -1,0 +1,13 @@
+<header>
+  <h1>🏪 TechStore MEAN App</h1>
+</header>
+
+<main class="main-layout">
+  <section class="left-panel">
+    <app-product-form (productCreated)="onProductCreated()"></app-product-form>
+  </section>
+
+  <section class="right-panel">
+    <app-product-list (editProduct)="onEditProduct($event)"></app-product-list>
+  </section>
+</main>
